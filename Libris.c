@@ -5,7 +5,7 @@
 #define MAX_LIVROS 100
 #define MAX_USUARIOS 50
 #define MAX_EMPRESTIMOS 100
-int compararDatas(char *data1, char *data2) {
+int compararDatas(char *data1, char *data2) { a
     // Formato de data: DD/MM/AAAA
     int dia1, mes1, ano1;
     int dia2, mes2, ano2;
