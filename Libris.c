@@ -134,7 +134,7 @@ void menuLivros() {
         printf("\n--- Menu Livros ---\n");
         printf("1. Listar Livros Disponíveis\n");
         printf("2. Listar Livros Emprestados\n");
-        printf("0. Voltar ao menu anterior\n");
+        printf("0. Voltar ao menu principal\n");
         printf("Escolha uma opção: ");
         escolha = validaEntrada();
 
@@ -153,7 +153,7 @@ void menuUsuarios() {
         clearConsole();
         printf("\n--- Menu Usuários ---\n");
         printf("1. Listar Usuários\n");
-        printf("0. Voltar ao menu anterior\n");
+        printf("0. Voltar ao menu principal\n");
         printf("Escolha uma opção: ");
         escolha = validaEntrada();
 
@@ -171,7 +171,7 @@ void menuEmprestimos() {
         clearConsole();
         printf("\n--- Menu Empréstimos ---\n");
         printf("1. Realizar Empréstimo\n");
-        printf("0. Voltar ao menu anterior\n");
+        printf("0. Voltar ao menu principal\n");
         printf("Escolha uma opção: ");
         escolha = validaEntrada();
 
@@ -190,7 +190,7 @@ void menuOutrasFuncoes() {
         printf("\n--- Outras Funções ---\n");
         printf("1. Listar Livros Disponíveis\n");
         printf("2. Listar Livros Emprestados\n");
-        printf("0. Voltar ao menu anterior\n");
+        printf("0. Voltar ao menu principal\n");
         printf("Escolha uma opção: ");
         escolha = validaEntrada();
 
@@ -205,6 +205,33 @@ void menuOutrasFuncoes() {
 
 // Função principal
 int main() {
+    // Adicionando livros e usuários de exemplo
+    strcpy(livros[0].titulo, "O Pequeno Príncipe");
+    strcpy(livros[0].autor, "Antoine de Saint-Exupéry");
+    strcpy(livros[0].anoDePublicacao, "1943");
+    strcpy(livros[0].ISBN, "978-85-508-0446-7");
+    strcpy(livros[0].status, "disponivel");
+    numLivros++;
+
+    strcpy(livros[1].titulo, "1984");
+    strcpy(livros[1].autor, "George Orwell");
+    strcpy(livros[1].anoDePublicacao, "1949");
+    strcpy(livros[1].ISBN, "978-0-452-28423-4");
+    strcpy(livros[1].status, "disponivel");
+    numLivros++;
+
+    strcpy(usuarios[0].nome, "Carlos Silva");
+    usuarios[0].ID = 1;
+    strcpy(usuarios[0].endereco, "Rua A, 123");
+    strcpy(usuarios[0].contato, "1234-5678");
+    numUsuarios++;
+
+    strcpy(usuarios[1].nome, "Maria Souza");
+    usuarios[1].ID = 2;
+    strcpy(usuarios[1].endereco, "Rua B, 456");
+    strcpy(usuarios[1].contato, "9876-5432");
+    numUsuarios++;
+
     int escolhaOpcao;
     clearConsole();
     // Exibindo o menu principal
@@ -217,7 +244,7 @@ int main() {
     printf("███▌    ▄ ███    ███    ███   ███    ███ ███     ▄█    ███ \n");
     printf("█████▄▄██ █▀   ▄█████████▀    ███    ███ █▀    ▄████████▀  \n");
     printf("▀                             ███    ███                   \n");
-    printf("\n---- 𝕲𝖊𝖗𝖊𝖓𝖈𝖎𝖆𝖒𝖊𝖓𝖙𝖔 𝖉𝖊 𝕷𝖎𝖛𝖗𝖔𝖘, 𝖀𝖘𝖚𝖆́𝖗𝖎𝖔𝖘 𝖊 𝕰𝖒𝖕𝖗𝖊́𝖘𝖙𝖎𝖒𝖔𝖘 ----\n");
+    printf("\n---- 𝕲𝖊𝖗𝖊𝖓𝖈𝖎𝖆𝖒𝖊𝖓𝖙𝖔 𝖉𝖊 𝕷𝖎𝖛𝖗𝖔𝖘, 𝖀𝖘𝖚𝖆́𝖗𝖎𝖔𝖘 𝖊 𝕰𝖒𝖕𝖗𝖊́𝖘𝖝𝖙𝖎𝖒𝖔𝖘 ----\n");
     printf("1. Gerenciamento de Livros\n");
     printf("2. Gerenciamento de Usuários\n");
     printf("3. Gerenciamento de Empréstimos\n");
