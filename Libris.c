@@ -2,7 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 
-#define MAX_LIVROS 100
+#define MAX_LIVROS 200
 #define MAX_USUARIOS 50
 #define MAX_EMPRESTIMOS 100
 
