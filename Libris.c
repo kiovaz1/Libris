@@ -5,6 +5,40 @@
 #define MAX_LIVROS 100
 #define MAX_USUARIOS 50
 #define MAX_EMPRESTIMOS 100
+
+// Definições das estruturas
+typedef struct {
+    char titulo[100];
+    char autor[100];
+    char anoDePublicacao[10];
+    char ISBN[20];
+    char status[20]; // "disponivel" ou "emprestado"
+} Livro;
+
+typedef struct {
+    int ID;
+    char nome[100];
+    char endereco[200];
+    char contato[50];
+} Usuario;
+
+typedef struct {
+    int livroID;
+    int usuarioID;
+    char dataEmprestimo[20];
+    char dataDevolucao[20];
+} Emprestimo;
+
+// Vetores de dados
+Livro livros[MAX_LIVROS];
+Usuario usuarios[MAX_USUARIOS];
+Emprestimo emprestimos[MAX_EMPRESTIMOS];
+
+int numLivros = 0;
+int numUsuarios = 0;
+int numEmprestimos = 0;
+
+
 int compararDatas(char *data1, char *data2) {
     // Formato de data: DD/MM/AAAA
     int dia1, mes1, ano1;
@@ -115,6 +149,7 @@ void realizarEmprestimo() {
         printf("Este livro já foi emprestado.\n");
     }
 }
+
 void listarLivrosDisponiveis() {
     clearConsole();
     printf("Lista de Livros Disponíveis:\n");
@@ -124,6 +159,7 @@ void listarLivrosDisponiveis() {
         }
     }
 }
+
 void listarLivrosEmprestados() {
     clearConsole();
     printf("Lista de Livros Emprestados:\n");
@@ -142,37 +178,6 @@ void clearConsole() {
     #endif
 }
 
-// Definições das estruturas
-typedef struct {
-    char titulo[100];
-    char autor[100];
-    char anoDePublicacao[10];
-    char ISBN[20];
-    char status[20]; // "disponivel" ou "emprestado"
-} Livro;
-
-typedef struct {
-    int ID;
-    char nome[100];
-    char endereco[200];
-    char contato[50];
-} Usuario;
-
-typedef struct {
-    int livroID;
-    int usuarioID;
-    char dataEmprestimo[20];
-    char dataDevolucao[20];
-} Emprestimo;
-
-// Vetores de dados
-Livro livros[MAX_LIVROS];
-Usuario usuarios[MAX_USUARIOS];
-Emprestimo emprestimos[MAX_EMPRESTIMOS];
-
-int numLivros = 0;
-int numUsuarios = 0;
-int numEmprestimos = 0;
 
 int validaEntrada() {
     int escolha;
