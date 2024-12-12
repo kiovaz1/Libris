@@ -6,7 +6,7 @@
 
 
 
-// Definição das structs, arrays e variáveis globais
+// Definicao das structs, arrays e variaveis globais
 #define MAX_LIVROS 100
 #define MAX_USUARIOS 50
 #define MAX_EMPRESTIMOS 100
@@ -16,7 +16,7 @@ typedef struct {
     char autor[100];
     char ISBN[20];
     int ano_publicacao;
-    int status;  // 0 para disponível, 1 para emprestado
+    int status;  // 0 para disponivel, 1 para emprestado
 } Livro;
 
 typedef struct {
@@ -41,70 +41,88 @@ int num_livros = 0;
 int num_usuarios = 0;
 int num_emprestimos = 0;
 
-// Funções de gerenciamento de livros
+// Funcao (limpar tela) Linux/Windows/Mac
+
+void clearConsole() {
+    #if defined(_WIN32) || defined(_WIN64)
+        system("cls");  // Limpa o console no Windows
+    #else
+        system("clear");  // Limpa o console no Linux/Mac
+    #endif
+}
+
+// Funcoes de gerenciamento de livros
 
 void cadastrarLivro() {
     if (num_livros >= MAX_LIVROS) {
-        printf("Acervo de livros cheio.\n");
+        printf("\nAcervo de livros cheio.\n");
         return;
     }
 
     Livro livro;
-    printf("Digite o título do livro: ");
+    clearConsole();
+    printf("\n --- Cadastrar Livro --- \n");
+    printf("Digite o titulo do livro: ");
     fgets(livro.titulo, 100, stdin);
     printf("Digite o autor: ");
     fgets(livro.autor, 100, stdin);
     printf("Digite o ISBN: ");
     fgets(livro.ISBN, 20, stdin);
-    printf("Digite o ano de publicação: ");
+    printf("Digite o ano de publicacao: ");
     scanf("%d", &livro.ano_publicacao);
     getchar();  // Limpar buffer
 
-    livro.status = 0;  // Inicialmente, o livro está disponível
+    livro.status = 0;  // Inicialmente, o livro esta disponivel
     livros[num_livros++] = livro;
-    printf("Livro cadastrado com sucesso.\n");
+    printf("\nLivro cadastrado com sucesso.\n");
 }
 
 void consultarLivro() {
     char ISBN[20];
+    clearConsole();
+    printf("\n --- Consultar Livro --- \n");
     printf("Digite o ISBN do livro: ");
     fgets(ISBN, 20, stdin);
 
     for (int i = 0; i < num_livros; i++) {
         if (strcmp(livros[i].ISBN, ISBN) == 0) {
-            printf("Título: %s", livros[i].titulo);
+            printf("Titulo: %s", livros[i].titulo);
             printf("Autor: %s", livros[i].autor);
-            printf("Ano de publicação: %d\n", livros[i].ano_publicacao);
-            printf("Status: %s\n", livros[i].status == 0 ? "Disponível" : "Emprestado");
+            printf("Ano de publicacao: %d\n", livros[i].ano_publicacao);
+            printf("Status: %s\n", livros[i].status == 0 ? "Disponivel" : "Emprestado");
             return;
         }
     }
-    printf("Livro não encontrado.\n");
+    printf("\nLivro nao encontrado.\n");
 }
 
 void atualizarLivro() {
     char ISBN[20];
+    clearConsole();
+    printf("\n --- Atualizar Livro --- \n");
     printf("Digite o ISBN do livro a ser atualizado: ");
     fgets(ISBN, 20, stdin);
 
     for (int i = 0; i < num_livros; i++) {
         if (strcmp(livros[i].ISBN, ISBN) == 0) {
-            printf("Atualize o título: ");
+            printf("Atualize o titulo: ");
             fgets(livros[i].titulo, 100, stdin);
             printf("Atualize o autor: ");
             fgets(livros[i].autor, 100, stdin);
-            printf("Atualize o ano de publicação: ");
+            printf("Atualize o ano de publicacao: ");
             scanf("%d", &livros[i].ano_publicacao);
             getchar();  // Limpar buffer
-            printf("Livro atualizado com sucesso.\n");
+            printf("\nLivro atualizado com sucesso.\n");
             return;
         }
     }
-    printf("Livro não encontrado.\n");
+    printf("\nLivro nao encontrado.\n");
 }
 
 void removerLivro() {
     char ISBN[20];
+    clearConsole();
+    printf("\n --- Remover Livro --- \n");
     printf("Digite o ISBN do livro a ser removido: ");
     fgets(ISBN, 20, stdin);
 
@@ -114,38 +132,42 @@ void removerLivro() {
                 livros[j] = livros[j + 1];
             }
             num_livros--;
-            printf("Livro removido com sucesso.\n");
+            printf("\nLivro removido com sucesso.\n");
             return;
         }
     }
-    printf("Livro não encontrado.\n");
+    printf("\nLivro nao encontrado.\n");
 }
 
-// Funções de gerenciamento de usuários
+// Funcoes de gerenciamento de usuarios
 
 void cadastrarUsuario() {
     if (num_usuarios >= MAX_USUARIOS) {
-        printf("Limite de usuários atingido.\n");
+        printf("Limite de usuarios atingido.\n");
         return;
     }
 
     Usuario usuario;
-    printf("Digite o nome do usuário: ");
+    clearConsole();
+    printf("\n --- Cadastrar Usuario --- \n");
+    printf("Digite o nome do usuario: ");
     fgets(usuario.nome, 100, stdin);
-    printf("Digite o ID do usuário: ");
+    printf("Digite o ID do usuario: ");
     scanf("%d", &usuario.id);
     getchar();  // Limpar buffer
-    printf("Digite o contato do usuário: ");
+    printf("Digite o contato do usuario: ");
     fgets(usuario.contato, 50, stdin);
 
     usuario.num_emprestimos = 0;
     usuarios[num_usuarios++] = usuario;
-    printf("Usuário cadastrado com sucesso.\n");
+    printf("\nUsuario cadastrado com sucesso.\n");
 }
 
 void atualizarUsuario() {
     int id;
-    printf("Digite o ID do usuário a ser atualizado: ");
+    clearConsole();
+    printf("\n --- Atualizar Usuario --- \n");
+    printf("Digite o ID do usuario a ser atualizado: ");
     scanf("%d", &id);
     getchar();  // Limpar buffer
 
@@ -155,16 +177,18 @@ void atualizarUsuario() {
             fgets(usuarios[i].nome, 100, stdin);
             printf("Atualize o contato: ");
             fgets(usuarios[i].contato, 50, stdin);
-            printf("Usuário atualizado com sucesso.\n");
+            printf("\nUsuario atualizado com sucesso.\n");
             return;
         }
     }
-    printf("Usuário não encontrado.\n");
+    printf("\nUsuario nao encontrado.\n");
 }
 
 void removerUsuario() {
     int id;
-    printf("Digite o ID do usuário a ser removido: ");
+    clearConsole();
+    printf("\n --- Remover Usuario --- \n");
+    printf("Digite o ID do usuario a ser removido: ");
     scanf("%d", &id);
     getchar();  // Limpar buffer
 
@@ -174,27 +198,28 @@ void removerUsuario() {
                 usuarios[j] = usuarios[j + 1];
             }
             num_usuarios--;
-            printf("Usuário removido com sucesso.\n");
+            printf("\nUsuario removido com sucesso.\n");
             return;
         }
     }
-    printf("Usuário não encontrado.\n");
+    printf("\nUsuario nao encontrado.\n");
 }
 
-// Funções de gerenciamento de empréstimos
+// Funcoes de gerenciamento de emprestimos
 
 void realizarEmprestimo() {
     int id_usuario;
     char ISBN[20];
-
-    printf("Digite o ID do usuário: ");
+    clearConsole();
+    printf("\n --- Realizar Emprestimo --- \n");
+    printf("Digite o ID do usuario: ");
     scanf("%d", &id_usuario);
     getchar();  // Limpar buffer
 
     printf("Digite o ISBN do livro: ");
     fgets(ISBN, 20, stdin);
 
-    // Verificar se o usuário existe
+    // Verificar se o usuario existe
     int usuario_existe = 0;
     for (int i = 0; i < num_usuarios; i++) {
         if (usuarios[i].id == id_usuario) {
@@ -204,17 +229,17 @@ void realizarEmprestimo() {
     }
 
     if (!usuario_existe) {
-        printf("Usuário não encontrado.\n");
+        printf("\nUsuario nao encontrado.\n");
         return;
     }
 
-    // Verificar se o livro existe e está disponível
+    // Verificar se o livro existe e esta disponivel
     int livro_existe = 0;
     for (int i = 0; i < num_livros; i++) {
         if (strcmp(livros[i].ISBN, ISBN) == 0) {
             livro_existe = 1;
             if (livros[i].status == 1) {
-                printf("Livro já está emprestado.\n");
+                printf("\nLivro ja esta emprestado.\n");
                 return;
             }
             break;
@@ -222,35 +247,36 @@ void realizarEmprestimo() {
     }
 
     if (!livro_existe) {
-        printf("Livro não encontrado.\n");
+        printf("\nLivro nao encontrado.\n");
         return;
     }
 
-    // Realizar empréstimo
+    // Realizar emprestimo
     Emprestimo emprestimo;
     emprestimo.id_usuario = id_usuario;
     strcpy(emprestimo.ISBN, ISBN);
-    printf("Digite a data de empréstimo (dd/mm/yyyy): ");
+    printf("Digite a data de emprestimo (dd/mm/yyyy): ");
     fgets(emprestimo.data_emprestimo, 11, stdin);
-    printf("Digite a data de devolução prevista (dd/mm/yyyy): ");
+    printf("Digite a data de devolucao prevista (dd/mm/yyyy): ");
     fgets(emprestimo.data_devolucao_prevista, 11, stdin);
 
     emprestimos[num_emprestimos++] = emprestimo;
     for (int i = 0; i < num_livros; i++) {
         if (strcmp(livros[i].ISBN, ISBN) == 0) {
-            livros[i].status = 1;  // Livro agora está emprestado
+            livros[i].status = 1;  // Livro agora esta emprestado
             break;
         }
     }
 
-    printf("Empréstimo realizado com sucesso.\n");
+    printf("\nEmprestimo realizado com sucesso.\n");
 }
 
 void registrarDevolucao() {
     int id_usuario;
     char ISBN[20];
-
-    printf("Digite o ID do usuário: ");
+    clearConsole();
+    printf("\n --- Registrar Devolucao --- \n");
+    printf("Digite o ID do usuario: ");
     scanf("%d", &id_usuario);
     getchar();  // Limpar buffer
 
@@ -267,21 +293,22 @@ void registrarDevolucao() {
                     break;
                 }
             }
-            printf("Devolução registrada com sucesso.\n");
+            printf("\nDevolucao registrada com sucesso.\n");
             return;
         }
     }
 
     if (!emprestimo_encontrado) {
-        printf("Empréstimo não encontrado.\n");
+        printf("\nEmprestimo nao encontrado.\n");
     }
 }
 
 void listarLivrosDisponiveis() {
-    printf("Livros disponíveis:\n");
+    clearConsole();
+    printf("\n --- Livros Disponiveis --- \n");
     for (int i = 0; i < num_livros; i++) {
         if (livros[i].status == 0) {
-            printf("Título: %s", livros[i].titulo);
+            printf("Titulo: %s", livros[i].titulo);
             printf("Autor: %s", livros[i].autor);
             printf("ISBN: %s", livros[i].ISBN);
             printf("Ano: %d\n", livros[i].ano_publicacao);
@@ -290,10 +317,11 @@ void listarLivrosDisponiveis() {
 }
 
 void listarLivrosEmprestados() {
-    printf("Livros emprestados:\n");
+    clearConsole();
+    printf("\n --- Livros Emprestados --- \n");
     for (int i = 0; i < num_livros; i++) {
         if (livros[i].status == 1) {
-            printf("Título: %s", livros[i].titulo);
+            printf("Titulo: %s", livros[i].titulo);
             printf("Autor: %s", livros[i].autor);
             printf("ISBN: %s", livros[i].ISBN);
             printf("Ano: %d\n", livros[i].ano_publicacao);
@@ -301,27 +329,35 @@ void listarLivrosEmprestados() {
     }
 }
 
-// Função principal (main)
+// Funcao principal (main)
 int main() {
     setlocale(LC_ALL, "pt_BR.UTF-8");
 
     int opcao;
 
     do {
-        printf("\n--- Sistema de Gerenciamento de Biblioteca ---\n");
-        printf("1. Cadastrar Livro\n");
-        printf("2. Consultar Livro\n");
-        printf("3. Atualizar Livro\n");
-        printf("4. Remover Livro\n");
-        printf("5. Cadastrar Usuário\n");
-        printf("6. Atualizar Usuário\n");
-        printf("7. Remover Usuário\n");
-        printf("8. Realizar Empréstimo\n");
-        printf("9. Registrar Devolução\n");
-        printf("10. Listar Livros Disponíveis\n");
-        printf("11. Listar Livros Emprestados\n");
-        printf("0. Sair\n");
-        printf("Escolha uma opção: ");
+        printf("\t\t                                                     \n");
+        printf("\t\t     _|        _|  _|                  _|            \n");
+        printf("\t\t     _|            _|_|_|    _|  _|_|        _|_|_|  \n");
+        printf("\t\t     _|        _|  _|    _|  _|_|      _|  _|_|      \n");
+        printf("\t\t     _|        _|  _|    _|  _|        _|      _|_|  \n");
+        printf("\t\t     _|_|_|_|  _|  _|_|_|    _|        _|  _|_|_|    \n");
+        printf("\t\t                                                     ");
+        printf("\n\t\t\tSistema de Gerenciamento de Biblioteca \n");
+        printf("\t\t______________________________________________________\n\n");
+        printf("\t(1) Cadastrar Livro\t\t\t");
+        printf("\t(2) Consultar Livro\n");
+        printf("\t(3) Atualizar Livro\t\t\t");
+        printf("\t(4) Remover Livro\n");
+        printf("\t(5) Cadastrar Usuario\t\t\t");
+        printf("\t(6) Atualizar Usuario\n");
+        printf("\t(7) Remover Usuario\t\t\t");
+        printf("\t(8) Realizar Emprestimo\n");
+        printf("\t(9) Registrar Devolucao\t\t\t");
+        printf("\t(10) Listar Livros Disponiveis\n");
+        printf("\t(11) Listar Livros Emprestados\t\t\t\n");
+        printf("\n\t\t\t\t\t(0) Sair\n");
+        printf("Escolha uma opcao: ");
         scanf("%d", &opcao);
         getchar();  // Limpar buffer
 
@@ -363,7 +399,7 @@ int main() {
                 printf("Saindo...\n");
                 break;
             default:
-                printf("Opção inválida! Tente novamente.\n");
+                printf("Opcao invalida! Tente novamente.\n");
         }
     } while(opcao != 0);
 
