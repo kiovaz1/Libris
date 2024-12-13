@@ -1,0 +1,99 @@
+[33mcommit 34fc9f9a7b4fae1794c8b56efb05f38654dbfdd3[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: 4d1be0d 1608a63
+Author: Caio Vasconcelos <caiovasconcelos01@live.com>
+Date:   Mon Dec 9 22:51:17 2024 -0300
+
+    Merge pull request #1 from DinizBlessed/master
+    
+    Pull 1
+
+[33mcommit 1608a63ef9d74abbb6e110105f06a20b0354008b[m
+Author: DinizBlessed <rcddinizz@gmail.com>
+Date:   Mon Dec 9 17:47:01 2024 -0800
+
+    teste
+    
+    100
+    200
+
+[33mcommit 1e230c802216a780d56d8c5b39e9b3bf6ce00c28[m
+Author: DinizBlessed <rcddinizz@gmail.com>
+Date:   Mon Dec 9 17:37:20 2024 -0800
+
+    Update Libris.c
+
+[33mcommit ba3b98c46e5d233f7ec09958681bca4bd7630a4c[m
+Author: DinizBlessed <rcddinizz@gmail.com>
+Date:   Mon Dec 9 14:22:57 2024 -0800
+
+    teste 2
+    
+    -a
+
+[33mcommit 3bead84a6e5cfe9116d722dff88a9d5e12dc7ef2[m
+Author: DinizBlessed <rcddinizz@gmail.com>
+Date:   Mon Dec 9 14:21:45 2024 -0800
+
+    teste
+    
+    a
+
+[33mcommit 4d1be0d73b41de2b19803735f69da698bb6b35f9[m
+Author: kiovaz1 <caiovasconcelos01@live.com>
+Date:   Mon Dec 9 18:50:08 2024 -0300
+
+    sla
+
+[33mcommit 979439e7fe02e9ac6ea95a50988f956c4da64347[m
+Author: kiovaz1 <caiovasconcelos01@live.com>
+Date:   Mon Dec 9 16:58:09 2024 -0300
+
+    eu nao estou mais suportando
+
+[33mcommit 5810fcff6f219cb4c0fbb688da69db64359bd30b[m
+Author: kiovaz1 <caiovasconcelos01@live.com>
+Date:   Mon Dec 9 16:50:10 2024 -0300
+
+    eu nao aguento mais
+
+[33mcommit e97064d0e92c7861251f58ae18fab417c3ecef84[m
+Author: kiovaz1 <caiovasconcelos01@live.com>
+Date:   Mon Dec 9 16:24:09 2024 -0300
+
+    bugs bugs e bugs
+
+[33mcommit ca2c2b56acfbc2f583bd78fee658d69b0b92cd8b[m
+Author: kiovaz1 <caiovasconcelos01@live.com>
+Date:   Mon Dec 9 16:01:32 2024 -0300
+
+    Deus dai-me forças para continuar
+
+[33mcommit dd8274a8b92aea697690823e7a91f6f3564fa543[m
+Author: kiovaz1 <caiovasconcelos01@live.com>
+Date:   Mon Dec 9 15:03:15 2024 -0300
+
+    Implementação de Funções,Procedimentos e Vetores de Armazenamento
+
+[33mcommit 5adc0c4c647325e02453b9057c4fcd002c7cac8e[m
+Author: kiovaz1 <caiovasconcelos01@live.com>
+Date:   Mon Dec 9 15:39:34 2024 -0300
+
+    Implementação de Menus de Gerenciamento
+
+[33mcommit 6b8f57090929d2cb6d191a4cace13fc5f28a9d6a[m[33m ([m[1;31morigin/Libris-Branch-1[m[33m, [m[1;32mLibris-Branch-1[m[33m)[m
+Author: Caio Vasconcelos <caiovasconcelos01@live.com>
+Date:   Mon Dec 9 06:53:55 2024 -0300
+
+    Create LICENSE
+
+[33mcommit 12961a0de66253c412359d281ce3de6cb26580f7[m
+Author: Caio Vasconcelos <caiovasconcelos01@live.com>
+Date:   Mon Dec 9 06:46:17 2024 -0300
+
+    Create README.md
+
+[33mcommit 548ca710d945f0f5968f74bfef5aec0e5cc76a46[m
+Author: Caio Vasconcelos <caiovasconcelos01@live.com>
+Date:   Mon Dec 9 06:15:27 2024 -0300
+
+    Libris Interface 1.0
